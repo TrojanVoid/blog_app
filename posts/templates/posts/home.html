@@ -1,0 +1,34 @@
+{% extends "posts/base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+<ul style="list-style-type: none; 
+            display:flex;
+            flex-wrap: wrap;
+            
+            ">
+    {% for post in object_list %}
+    <li><a href="{% url 'post_detail' post.pk %}">   
+        <div class="card" style="width: 18rem; margin: 2rem; height: 25rem">
+            {% if post.image %}
+            <img class="card-img-top" src="{{ post.image.url }}"  alt="Post image">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.user.username}} || {{post.timestamp}}</p>
+            </div>
+          </div>
+        </a> 
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
+<div class="post_view" style="
+            display: flex; justify-content: center; align-items: center; flex-direction: column; height: 10rem;
+        ">
+            {{post.title}}
+                <img class="post_image" src="{{ post.image.url }} " style="cursor: pointer;"/>
+            {{post.user.username}}
+            {{post.content}}
+            {{post.timestamp}}
+        </div>

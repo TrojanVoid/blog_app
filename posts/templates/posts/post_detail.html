@@ -1,0 +1,26 @@
+{% extends "posts/base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+
+<div style="display: flex;
+               justify-content:center;
+               align-items:center;
+               margin-top: 3rem;
+               flex-direction:column;
+               ">
+
+<div class="card" style="width: 36rem;">
+    {% if post.image %}
+    <img class="card-img-top" src="{{ post.image.url }}"  alt="Post image">
+    {% endif %}
+    <hr>
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.user.username}} || {{post.timestamp}} <br>{{post.description}}
+        {{post.content}}
+    </p>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

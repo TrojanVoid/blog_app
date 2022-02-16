@@ -1,0 +1,23 @@
+{% extends "posts/base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+
+<div style="display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            margin-top: 2rem;">
+
+
+<h1>ADD POST</h1>
+
+<form id="add_post_form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button style="width: 100%" class="btn btn-primary">Post</button>
+
+</form>
+
+</div>
+
+{% endblock content %}

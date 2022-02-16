@@ -1,0 +1,32 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div style="display: flex;
+               justify-content:center;
+               align-items:center;
+               margin-top: 7rem;
+               flex-direction:column;
+               ">
+        {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+            {% else %}
+                <p>Please login to see this page.</p>
+            {% endif %}
+        {% endif %}
+        
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button style="width:100%" class="btn btn-primary">Login</button>
+            <input type="hidden" value="{{next}}" name="next" />
+        </form>
+    </div>
+
+{% endblock content %}
+

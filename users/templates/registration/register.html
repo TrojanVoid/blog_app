@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <p>Non-valid info entered!</p>
+        {% endif %}
+
+        {{ form_user.as_p }}
+        {{ form_profile.as_p}}
+
+        <button style="width:100%" class="btn btn-primary">Register</button>
+    </form>
+{% endblock content %}

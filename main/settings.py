@@ -25,7 +25,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SECRET_KEY = config('SECRET_KEY')
 
-django_heroku.settings(locals())
+
 
 DEBUG = config('DEBUG')
 
@@ -130,3 +130,4 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+django_heroku.settings(locals())

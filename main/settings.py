@@ -32,7 +32,7 @@ DEBUG = config('DEBUG')
 
 DISABLE_COLLECTSTATIC = 1
 
-ALLOWED_HOSTS = ['main.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['django-post-blog-app.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition

@@ -5,7 +5,6 @@ from decouple import config
 
 
 
-django_heroku.settings(locals())
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -21,12 +20,12 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 SECRET_KEY = config('SECRET_KEY')
 
+django_heroku.settings(locals())
 
 DEBUG = config('DEBUG')
 
